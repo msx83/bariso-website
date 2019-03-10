@@ -1,0 +1,138 @@
+* {
+	scroll-behavior: smooth;
+}
+
+a, a:visited {
+    color: $orange;
+}
+
+.navbar {
+    background: linear-gradient(to bottom, #111 0%,transparent 100%);
+}
+
+.navbar-dark-bg {
+    background-color: rgba(0,0,0,0.5);
+}
+
+.navbar.shrink {
+    background-color: rgba(0,0,0,0.5);
+}
+
+.header-img-container {
+    background-image: url('../img/front-bg.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 45vh;
+
+    .logo {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        padding-top: 60px;
+        margin: 0 auto;
+        width: 250px;
+    }
+
+    .triangles {
+        height: 100.1%;
+        max-width: 100%;
+        position: relative;
+
+        &::before {
+            content: '';
+            height: 30%;
+            width: 50%;
+            background-color: #000;
+            left: 0;
+            bottom: 0;
+            position: absolute;
+            clip-path: polygon(0 0, 0 100%, 100% 100%);
+        }
+
+        &::after {
+            content: '';
+            height: 30%;
+            width: 50%;
+            background-color: #000;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            clip-path: polygon(100% 100%, 0 100%, 100% 0);
+        }
+    }
+}
+
+.hero {
+    background-color: #000;
+    min-height: 55vh;
+    .content {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        height: 100%;
+        .tekst {
+            color: #fff;
+            font-style: italic;
+            text-align: center;
+            padding: 20px 0;
+        }
+    }
+}
+
+#products, #service {
+    padding-top: 60px;
+    padding-bottom: 40px;
+    min-height: 50vh;
+}
+
+#service img {
+    object-fit: cover;
+    height: 350px;
+}
+
+#contact {
+    background: #222 url('../img/attractive-bar-barista-296888.jpg') center center;
+    background-size: cover;
+    color: #fff;
+    padding: 40px 0 60px;
+    margin-bottom: -40px;
+}
+
+#page-footer {
+    color: #442d1c;
+    text-align: center;
+    height: 40px;
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+    .header-img-container {
+        .logo {
+            top: 0;
+            padding-top: 15vh;
+            width: 300px;
+        }
+    }
+    .hero {
+        .content {
+            flex-wrap: nowrap;
+            .tekst {
+                text-align: left;
+            }
+        }
+    }
+    #contact {
+        text-align: right;
+    }
+}
