@@ -1,35 +1,21 @@
-const navbar_toggler = document.querySelector('.navbar-toggler');
-navbar_toggler.addEventListener('click', function (e){
-    document.querySelector('.navbar').classList.toggle('navbar-dark-bg');
+window.addEventListener('scroll', function() {
+    scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const navbar = document.querySelector('.navbar');
+    navbar.classList.toggle('scrolled', scrollTop > 60);
+    navbar.classList.toggle('bg-dark', scrollTop > 60);
 });
 
-const nav_items = document.querySelectorAll('.nav-item');
+const navbar_toggler = document.querySelector('.navbar-toggle');
+navbar_toggler.addEventListener('click', function (e){
+    const navbar = document.querySelector('.navbar');
+    if (! navbar.classList.contains('scrolled')) {
+        navbar.classList.toggle('bg-dark');
+    }
+});
+
+const nav_items = document.querySelectorAll('.navbar li a');
 nav_items.forEach((nav_item) => {
     nav_item.addEventListener('click', function () {
         $('.collapse').collapse('hide');
     });
 });
-
-$(window).on("scroll", function () {
-    $("nav.navbar").toggleClass("shrink", $(this).scrollTop() > 80);
-});
-
-(function ($) {
-    'use strict';
-    // Można sprawdzić, czy scroll-behavior jest obsługiwane i jedynie wówczas dopinać skrypt
-    if (('scroll-behavior' in getComputedStyle(document.documentElement))) {
-        return;
-    }
-
-    $('.scrollTo').on('click', function (e) {
-        e.preventDefault();
-        var href = $(this).attr('href');
-        $('html, body').animate({
-            scrollTop: $(href).offset().top + 'px'
-        }, 1500, function () {
-            // Dodajemy hash do adresu
-            location.hash = href;
-        });
-    });
-
-}(jQuery));

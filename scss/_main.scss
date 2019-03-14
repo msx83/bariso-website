@@ -2,81 +2,75 @@
 	scroll-behavior: smooth;
 }
 
-a, a:visited {
-    color: $orange;
-}
-
 .navbar {
-    background: linear-gradient(to bottom, #111 0%,transparent 100%);
+    transition: background 0.5s;
+}
+.navbar-default {
+    background-image: linear-gradient(rgba(0,0,0,0.9), transparent);
+    border: none;
+}
+.bg-dark {
+    background: rgba(0, 0, 0, 0.9);
 }
 
-.navbar-dark-bg {
-    background-color: rgba(0,0,0,0.5);
-}
-
-.navbar.shrink {
-    background-color: rgba(0,0,0,0.5);
-}
-
-.header-img-container {
+.header-img {
     background-image: url('../img/front-bg.jpg');
     background-position: center;
     background-size: cover;
-    height: 45vh;
+    height: 350px;
 
-    .logo {
+    .logo img {
         position: absolute;
         left: 0;
         right: 0;
         top: 0;
-        padding-top: 60px;
+        padding-top: 80px;
         margin: 0 auto;
-        width: 250px;
+        height: 250px;
     }
 
     .triangles {
-        height: 100.1%;
-        max-width: 100%;
+        height: 100.2%;
         position: relative;
-
         &::before {
-            content: '';
-            height: 30%;
-            width: 50%;
-            background-color: #000;
-            left: 0;
+            background-color: #000000;
             bottom: 0;
-            position: absolute;
             clip-path: polygon(0 0, 0 100%, 100% 100%);
-        }
-
-        &::after {
             content: '';
-            height: 30%;
-            width: 50%;
-            background-color: #000;
+            height: 25%;
+            left: 0;
             position: absolute;
-            right: 0;
+            width: 50%;
+        }
+        &::after {
+            background-color: #000000;
             bottom: 0;
             clip-path: polygon(100% 100%, 0 100%, 100% 0);
+            content: '';
+            height: 25%;
+            position: absolute;
+            right: 0;
+            width: 50%;
         }
     }
 }
 
 .hero {
     background-color: #000;
-    min-height: 55vh;
     .content {
         display: flex;
         align-items: center;
         flex-wrap: wrap;
         justify-content: space-around;
         height: 100%;
+        padding: 20px 0;
         .tekst {
             color: #fff;
             font-style: italic;
             text-align: center;
-            padding: 20px 0;
+        }
+        img {
+            max-width: 400px;
         }
     }
 }
@@ -92,47 +86,67 @@ a, a:visited {
     height: 350px;
 }
 
-#contact {
-    background: #222 url('../img/attractive-bar-barista-296888.jpg') center center;
+#page-footer {
+    background: #222 url('../img/footer-bg.jpg') center center;
     background-size: cover;
     color: #fff;
-    padding: 40px 0 60px;
-    margin-bottom: -40px;
-}
-
-#page-footer {
-    color: #442d1c;
-    text-align: center;
-    height: 40px;
+    padding-top: 40px;
+    .copyrights {
+        color: darken($brand-primary, 20%);
+        text-align: center;
+        padding: 20px 0;
+    }
 }
 
 // Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {}
+@media (min-width: 576px) {
+    // .header-img {
+    //     height: 100vh;
+    // }
+}
 
 // Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {}
+@media (min-width: 768px) {
+    .navbar {
+        font-size: 1.4rem;
+    }
+}
 
 // Large devices (desktops, 992px and up)
-@media (min-width: 992px) {}
+@media (min-width: 992px) {
+    .navbar {
+        font-size: 1.7rem;
+    }
+}
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
-    .header-img-container {
-        .logo {
-            top: 0;
-            padding-top: 15vh;
-            width: 300px;
+    .header-img {
+        height: 50vh;
+        .logo img {
+            height: 300px;
         }
+
     }
     .hero {
         .content {
+            min-height: 50vh;
             flex-wrap: nowrap;
             .tekst {
                 text-align: left;
+                font-size: 1.8rem;
+                line-height: 2.6rem;
+            }
+            img {
+                max-width: 600px;
             }
         }
     }
     #contact {
+        text-align: right;
+    }
+
+    #page-footer .address {
         text-align: right;
     }
 }
