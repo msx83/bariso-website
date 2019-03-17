@@ -3050,7 +3050,7 @@ output {
   padding-top: 7px;
   font-size: 14px;
   line-height: 1.42857;
-  color: #555555;
+  color: #fff;
 }
 
 .form-control {
@@ -3060,7 +3060,7 @@ output {
   padding: 6px 12px;
   font-size: 14px;
   line-height: 1.42857;
-  color: #555555;
+  color: #fff;
   background-color: #222;
   background-image: none;
   border: 1px solid #222;
@@ -4496,7 +4496,7 @@ tbody.collapse.in {
   font-size: 14px;
   font-weight: 400;
   line-height: 1;
-  color: #555555;
+  color: #fff;
   text-align: center;
   background-color: #eeeeee;
   border: 1px solid #222;

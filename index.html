@@ -7,6 +7,26 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
         <link rel="stylesheet" href="css/style.css">
+        <script type="text/javascript">
+            function onSubmit(token) {
+                alert('thanks ' + document.getElementById('name').value);
+            }
+
+            function validate(event) {
+                event.preventDefault();
+                if (!document.getElementById('emailInput').value || !document.getElementById('nameInput').value || !document.getElementById('messageInput').value) {
+                    alert("Musisz wypełnić wszystkie pola formularza!");
+                } else {
+                    grecaptcha.execute();
+                }
+            }
+
+            function onload() {
+                var element = document.getElementById('submitBtn');
+                element.onclick = validate;
+            }
+        </script>
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
         <title>BARISO</title>
     </head>
 
@@ -86,18 +106,20 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <form action="" method="post" id="contact-form">
+                        <form action="sendemail.php" method="post" id="contact-form">
+                            <div id='recaptcha' class="g-recaptcha" data-sitekey="6Lf0KpgUAAAAAGVdKOvFmu9-mJuhsIUsaFbxwbTW" data-callback="onSubmit" data-size="invisible"></div>
                             <div class="form-group">
-                                <input type="text" class="form-control" name="name" placeholder="Imię i nazwisko">
+                                <input type="text" class="form-control" name="name" id="nameInput" placeholder="Imię i nazwisko">
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Email">
+                                <input type="email" class="form-control" name="email" id="emailInput" placeholder="Email">
                             </div>
                             <div class="form-group">
-                                <textarea name="" id="message" class="form-control" rows="4" placeholder="Wiadomość"></textarea>
+                                <textarea id="messageInput" class="form-control" name="message" rows="4" placeholder="Wiadomość"></textarea>
                             </div>
                             <div class="text-right">
-                                <button class="btn btn-primary">Wyślij</button>
+                                <button class="btn btn-primary" id="submitBtn">Wyślij</button>
+                                <!-- <button class="btn btn-primary g-recaptcha" data-sitekey="6LcjB5gUAAAAAJQaHQKIMXVkcwPPTToJYk-CJbHD" data-callback='onSubmit'>Wyślij</button> -->
                             </div>
                         </form>
                     </div>
@@ -124,6 +146,7 @@
         </footer>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+        <script>onload();</script>
         <script src="js/main.js"></script>
     </body>
 
