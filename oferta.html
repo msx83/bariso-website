@@ -7,6 +7,16 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
         <link rel="stylesheet" href="css/style.css">
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        <script type="text/javascript">
+            function onSubmit(token) {
+                if (!document.getElementById('emailInput').value || !document.getElementById('nameInput').value || !document.getElementById('messageInput').value) {
+                    alert("Musisz wypełnić wszystkie pola formularza!");
+                } else {
+                    document.getElementById("contact-form").submit();
+                }
+            }
+        </script>
         <title>OFERTA</title>
     </head>
 
@@ -180,7 +190,7 @@
                                 <textarea name="" id="message" class="form-control" rows="4" placeholder="Wiadomość"></textarea>
                             </div>
                             <div class="text-right">
-                                <button class="btn btn-primary">Wyślij</button>
+                                <button class="btn btn-primary g-recaptcha" data-sitekey="6Lf0KpgUAAAAAGVdKOvFmu9-mJuhsIUsaFbxwbTW" data-callback='onSubmit'>Wyślij</button>
                             </div>
                         </form>
                     </div>

@@ -7,26 +7,16 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
         <link rel="stylesheet" href="css/style.css">
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
         <script type="text/javascript">
             function onSubmit(token) {
-                alert('thanks ' + document.getElementById('name').value);
-            }
-
-            function validate(event) {
-                event.preventDefault();
                 if (!document.getElementById('emailInput').value || !document.getElementById('nameInput').value || !document.getElementById('messageInput').value) {
                     alert("Musisz wypełnić wszystkie pola formularza!");
                 } else {
-                    grecaptcha.execute();
+                    document.getElementById("contact-form").submit();
                 }
             }
-
-            function onload() {
-                var element = document.getElementById('submitBtn');
-                element.onclick = validate;
-            }
         </script>
-        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
         <title>BARISO</title>
     </head>
 
@@ -118,8 +108,7 @@
                                 <textarea id="messageInput" class="form-control" name="message" rows="4" placeholder="Wiadomość"></textarea>
                             </div>
                             <div class="text-right">
-                                <button class="btn btn-primary" id="submitBtn">Wyślij</button>
-                                <!-- <button class="btn btn-primary g-recaptcha" data-sitekey="6LcjB5gUAAAAAJQaHQKIMXVkcwPPTToJYk-CJbHD" data-callback='onSubmit'>Wyślij</button> -->
+                                <button class="btn btn-primary g-recaptcha" data-sitekey="6Lf0KpgUAAAAAGVdKOvFmu9-mJuhsIUsaFbxwbTW" data-callback='onSubmit'>Wyślij</button>
                             </div>
                         </form>
                     </div>
